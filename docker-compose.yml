@@ -1,0 +1,25 @@
+version: '2'
+services:
+  node:
+    build: .
+    #image: node:latest
+    restart: always
+    container_name: node_hexo
+    volumes:
+      - blog_vol:/home/hexo/blog
+    ports:
+      - 8080:4000
+    networks:
+      - network1 
+    command: bash -c "hexo server"
+
+volumes:
+  blog_vol:
+    driver_opts:
+      type: none
+      device: $PWD/blog
+      o: bind
+
+networks:
+  network1:
+    driver: bridge
