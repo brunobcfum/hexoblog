@@ -3,5 +3,6 @@ Docker stuff for a Hexo blog
 
 This should be used together with docker-compose.
 
-Create the volume folders and run:
+Create the volume folder and run:
+mkdir blog
 docker-compose -d up
